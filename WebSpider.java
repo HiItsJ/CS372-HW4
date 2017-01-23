@@ -10,7 +10,7 @@ public class WebSpider{
   public static void main(String[] args){
     links = new HashMap<URL, Boolean>();
     try{
-      links.put(new URL("http://www.whitworth.edu/cms/"), false);
+      links.put(new URL("http://stackoverflow.com/"), false);
     }
     catch(Exception ex){
       System.out.printf("Oops: %s", ex.getMessage());
@@ -49,7 +49,7 @@ public class WebSpider{
               }
             }
             else{
-              System.out.println("no match");
+              System.out.println("no pattern match");
             }
           }
         }
@@ -58,6 +58,11 @@ public class WebSpider{
         }
       }
     }
-    System.out.println(links.size());
+    if (links.size()<100){
+      search();
+    }
+    else {
+      System.out.printf("%d\n", links.size());
+    }
   }
 }
